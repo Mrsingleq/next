@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure Stitch </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .banner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to right, cyan, blue);
+        }
+        .banner img {
+            max-width: 500px;
+            height: auto;
+            padding:15px;
+        }
+        .content {
+            text-align: center;
+            margin: 50px;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: blue;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <marquee>
+        <img src="/static/images/hangers.jpg" alt="Fashion Week">
+        <img src="/static/images/shopping-mall.jpg" alt="Exclusive Preview">
+        <img src="/static/images/beautiful-people.jpg" alt="VIP Preview" class="the">
+        </marquee>
+    </div>
+    <div class="content">
+        <h1>Welcome to Azure Stitch World of Fashion</h1>
+        <p>Explore the latest trends, styles, and everything in between.</p>
+        <a href="{% url 'instagram' %}" target="_blank" class="cta-button">Click To Continue</a>
+    </div>
+</body>
+</html>

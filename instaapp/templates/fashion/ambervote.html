@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static%}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure Stitch Vote</title>
+    <style>
+        /* General Styles */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f7e1e1, #ffe8e8);
+            color: #333;
+            overflow-x: hidden;
+        }
+        .header {
+            background-color: blue;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 30px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        .center{
+            
+            text-align: center;
+            width: 100%;
+        }
+        .logo {
+            width: 150px;
+            height: 150px;
+        }
+        .flex{
+            align-items: center;
+            display: flex;
+            flex-direction: row;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in-out;
+        }
+        h2 {
+            text-align: center;
+            font-size: 24px;
+            color: indigo;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        .contestant {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+            animation: slideInLeft 1s ease-in-out;
+        }
+        .contestant:last-child {
+            border-bottom: none;
+        }
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 4px solid cyan;
+            margin-right: 20px;
+        }
+        .details {
+            flex-grow: 1;
+        }
+        .details h3 {
+            margin: 0 0 8px 0;
+            font-size: 20px;
+            color: #333;
+            text-transform: capitalize;
+        }
+        .details p {
+            margin: 0;
+            color: #777;
+            font-size: 14px;
+        }
+        .vote-button {
+            background-color: blue;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            cursor: pointer;
+            border-radius: 25px;
+            font-size: 14px;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .vote-button:hover {
+            background-color: indigo;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Pop-Up Styles */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+        .popup h2 {
+            margin: 0 0 10px 0;
+            font-size: 22px;
+            color: indigo;
+            font-weight: bold;
+        }
+        .popup p {
+            margin: 0 0 20px;
+            color: #555;
+            font-size: 16px;
+        }
+        .popup button {
+            background-color: indigo;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .popup button:hover {
+            background-color: blue;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 999;
+        }
+
+        /* Animation */
+    
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .contestant {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .profile-image {
+                margin-bottom: 15px;
+            }
+            .vote-button {
+                margin-top: 15px;
+                align-self: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+    <div class="header ">
+        <div class="header flex">
+        <img src="/static/images/Azure _Stitchd.png" alt="Logo" class="logo">
+        <p class="center">Welcome to Azure Stitch Fashion World</p>
+       </div>
+    </div>
+</header>
+    <div class="container">
+        <h2>Vote for Your Favorite Contestant</h2>
+
+        <!-- Contestants List -->
+        <div class="contestant">
+            <img src="/static/images/taro.jpg" alt="Taro Yamada" class="profile-image">
+            <div class="details">
+                <h3>Taro Yamada </h3>
+                <p>Taro Yamada is known for his innovative streetwear designs that have taken the fashion world by storm.</p>
+            </div>
+            <button class="vote-button" onclick="vote('Taro Yamada ')">Vote</button>
+        </div>
+        
+        <div class="contestant">
+            <img src="/static/images/ava.jpg" alt="Ava Morales" class="profile-image">
+            <div class="details">
+                <h3>Ava Morales</h3>
+                <p>Ava Morales's chic and modern styles have made her a favorite among young fashion enthusiasts.</p>
+            </div>
+            <button class="vote-button" onclick="vote('Ava Morales')">Vote</button>
+        </div>
+        
+        <div class="contestant">
+            <img src="/static/images/Cristian.jpg" alt="Cristian Moreno" class="profile-image">
+            <div class="details">
+                <h3>Cristian Moreno</h3>
+                <p>Cristian Moreno eco-friendly fashion line is both sustainable and stylish, earning him accolades in the industry.</p>
+            </div>
+            <button class="vote-button" onclick="vote('Cristian Moreno')">Vote</button>
+        </div>
+        
+        <div class="contestant">
+            <img src="/static/images/Gabriella.jpg" alt="Gabriella Hall" class="profile-image">
+            <div class="details">
+                <h3>Gabriella Hall</h3>
+                <p>Gabriella's vintage-inspired collections bring a touch of nostalgia to contemporary fashion.</p>
+            </div>
+            <button class="vote-button" onclick="vote('Gabriella Hall')">Vote</button>
+        </div>
+        
+        <div class="contestant">
+            <img src="/static/images/Julian.jpeg" alt="Julian Styles" class="profile-image">
+            <div class="details">
+                <h3>Julian Styles</h3>
+                <p>Julian Styles bold use of colors and patterns sets his designs apart in the world of haute couture.</p>
+            </div>
+            <button class="vote-button" onclick="vote('Julian Styles')">Vote</button>
+        </div>
+        
+        <div class="contestant">
+            <img src="/static/images/Sofia Patel.jpg" alt="Sofia Patel" class="profile-image">
+            <div class="details">
+                <h3>Sofia Patel</h3>
+                <p>Sofia Patel ready-to-wear collections are known for their comfort and elegance, appealing to a wide audience.</p>
+            </div>
+            <button class="vote-button" onclick="vote('Sofia Patel')">Vote</button>
+        </div>
+
+        <div class="contestant">
+            <img src="/static/images/main.jpg" alt="Léa Dupont" class="profile-image">
+            <div class="details">
+                <h3>Léa Dupont</h3>
+                <p>Léa Dupont designs are a fusion of cultural heritage and contemporary fashion, making her pieces unique.</p>
+            </div>
+            <button class="vote-button" onclick="vote('Léa Dupont')">Vote</button>
+        </div>
+        
+        <div class="contestant">
+            <img src="/static/images/Thompson.jpg" alt="Ethan Thompson" class="profile-image">
+            <div class="details">
+                <h3>Ethan Thompson</h3>
+                <p>Ethan has a knack for creating stylish menswear that combines classic elements with modern trends.</p>
+            </div>
+            <button class="vote-button" onclick="vote('Ethan Thompson')">Vote</button>
+        </div>
+    
+        
+        <div class="contestant">
+            <img src="/static/images/Nalani.jpg" alt="Nalani Jensen" class="profile-image">
+            <div class="details">
+                <h3>Nalani Jensen</h3>
+                <p>Nalani Jensen minimalist designs are perfect for those who appreciate understated elegance and simplicity.</p>
+            </div>
+            <button class="vote-button" onclick="vote('Nalani Jensen')">Vote</button>
+        </div>
+        
+        <div class="contestant">
+            <img src="/static/images/Aaliyah.jpg" alt="Aaliyah Lee" class="profile-image">
+            <div class="details">
+                <h3>Aaliyah Lee</h3>
+                <p>Aaliyah's high-fashion runway looks are known for their boldness and innovation, captivating audiences worldwide.</p>
+            </div>
+            <button class="vote-button" onclick="vote('Aaliyah Lee')">Vote</button>
+        </div>
+        
+        <div class="contestant">
+            <img src="/static/images/Jin-Soo Kim.jpg" alt="Jin-Soo Kim" class="profile-image">
+            <div class="details">
+                <h3>Jin-Soo Kim</h3>
+                <p>Jin-Soo Kim brings a fresh perspective to menswear with his avant-garde designs and unique style.</p>
+            </div>
+            <button class="vote-button" onclick="vote('Jin-Soo Kim')">Vote</button>
+        </div>
+        
+        {% comment %} <div class="contestant">
+            <img src="/static/images/" alt="Sophia Taylor" class="profile-image">
+            <div class="details">
+                <h3>Sophia Taylor</h3>
+                <p>Sophia's bridal collections are renowned for their romantic and ethereal qualities, making her a top choice for brides-to-be.</p>
+            </div>
+            <button class="vote-button" onclick="vote('Sophia Taylor')">Vote</button>
+        </div>
+        
+        <div class="contestant">
+            <img src="/static/images/" alt="Lucas Harris" class="profile-image">
+            <div class="details">
+                <h3>Lucas Harris</h3>
+                <p>Lucas's casual wear designs blend comfort with style, making his collections a hit among the younger crowd.</p>
+            </div>
+            <button class="vote-button" onclick="vote('Lucas Harris')">Vote</button>
+        </div>
+        
+        <div class="contestant">
+            <img src="/static/images/" alt="Grace Robinson" class="profile-image">
+            <div class="details">
+                <h3>Grace Robinson</h3>
+                <p>Grace's couture gowns are a work of art, known for their intricate details and luxurious fabrics.</p>
+            </div>
+            <button class="vote-button" onclick="vote('Grace Robinson')">Vote</button>
+        </div>
+        
+        <div class="contestant">
+            <img src="/static/images/" alt="Ethan Lewis" class="profile-image">
+            <div class="details">
+                <h3>Ethan Lewis</h3>
+                <p>Ethan's sportswear collections are both functional and stylish, catering to the active lifestyle.</p>
+            </div>
+            <button class="vote-button" onclick="vote('Ethan Lewis')">Vote</button>
+        </div> {% endcomment %}
+        
+        </div>
+    </div>
+
+    <!-- Pop-Up -->
+    <div class="overlay" id="overlay"></div>
+    <div class="popup" id="popup">
+        <h2>Thank You for Voting!</h2>
+        <p id="popup-message"></p>
+        <a href="{% url 'index' %}"><button onclick="closePopup()">Close</button></a>
+    </div>
+
+    <script>
+        // Function to handle voting
+        function vote(contestantName) {
+            const popup = document.getElementById('popup');
+            const overlay = document.getElementById('overlay');
+            const message = document.getElementById('popup-message');
+
+            message.textContent = `You voted for ${contestantName}. We appreciate your support!`;
+            popup.style.display = 'block';
+            overlay.style.display = 'block';
+        }
+
+        // Function to close the pop-up
+        function closePopup() {
+            const popup = document.getElementById('popup');
+            const overlay = document.getElementById('overlay');
+
+            popup.style.display = 'none';
+            overlay.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

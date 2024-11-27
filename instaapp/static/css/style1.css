@@ -1,0 +1,300 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to bottom right, #f8f8f8, #e0e0e0);
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.login-box {
+    background: white;
+    padding: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 350px;
+    position: relative;
+}
+
+.microsoft-logo {
+    width: 100px;
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.login-box h1 {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.login-box .mslogo {
+    margin-right: 245px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    height: 24px;
+}
+
+.login-box form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-box label {
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.login-box input[type="text"],
+.login-box input[type="password"] {
+    border-color: rgb(102, 102, 102);
+    border-bottom-width: 1px;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    padding: 10px;
+    margin-bottom: 20px;
+    /*border: 1px solid #ccc;
+    border-radius: 5px;*/
+    font-size: 16px;
+    width: 90%;
+}
+
+.login-box input[readonly] {
+    background-color: #f0f0f0;
+}
+
+.login-box a {
+    color: #0078d4;
+    text-decoration: none;
+    margin-bottom: 20px;
+    text-align: left;
+    display: block;
+}
+
+.login-box a:hover {
+    text-decoration: underline;
+}
+
+.login-box button {
+    background-color: #0078d4;
+    max-width: 100px;
+    min-width: 108px;
+    min-height: 32px;
+    margin-left: 230px;
+    color: white;
+    padding: 10px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.login-box button:hover {
+    background-color: #005a9e;
+}
+
+.other-account {
+    margin-top: 20px;
+    display: block;
+    text-align: center;
+}
+
+
+
+
+
+
+/*
+Instagram CSS Styles
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fafafa;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+
+header .instagram-logo {
+    width: 200px;
+    margin: 20px 0;
+    box-sizing: border-box;
+    display: flex;
+    border-bottom-right-radius: 0;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: stretch;
+    flex-direction: row;
+    border-bottom: 1px solid #dbdbdb;
+    position: relative;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    background-color: transparent;
+    overflow-x: visible;
+    overflow-y: visible;
+}
+
+.reset-box {
+    background-color: #fff;
+    border: 1px solid #dbdbdb;
+    padding: 40px;
+    width: 350px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.lock-icon img {
+    width: 50px;
+    margin-bottom: 20px;
+}
+
+.reset-box h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.reset-box p {
+    font-size: 14px;
+    color: #8e8e8e;
+    margin-bottom: 20px;
+}
+
+.reset-box form {
+    display: flex;
+    flex-direction: column;
+}
+
+.reset-box input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.reset-box button {
+    padding: 10px;
+    border: none;
+    background-color: #0095f6;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.reset-box a {
+    color: #0095f6;
+    font-size: 14px;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+.reset-box .or {
+    position: relative;
+    margin: 20px 0;
+    font-size: 14px;
+    color: #8e8e8e;
+}
+
+.reset-box .or::before,
+.reset-box .or::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background-color: #dbdbdb;
+}
+
+.reset-box .or::before {
+    left: 0;
+}
+
+.reset-box .or::after {
+    right: 0;
+}
+
+.reset-box .create-account {
+    background-color: #fff;
+    color: #0095f6;
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.reset-box .back-to-login {
+    color: #8e8e8e;
+    font-size: 14px;
+    text-decoration: none;
+    display: block;
+    margin-top: 20px;
+}
+
+footer {
+    width: 100%;
+    padding: 20px 0;
+    border-top: 1px solid #dbdbdb;
+    background-color: #fafafa;
+    text-align: center;
+}
+
+footer nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+footer nav ul li {
+    margin: 0 10px;
+}
+
+footer nav ul li a {
+    color: #00376b;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.footer-bottom {
+    margin-top: 10px;
+}
+
+.footer-bottom select {
+    border: 1px solid #dbdbdb;
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.footer-bottom span {
+    font-size: 12px;
+    color: #8e8e8e;
+    margin-left: 20px;
+}
+
+*/
